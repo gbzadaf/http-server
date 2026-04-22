@@ -16,7 +16,12 @@ public class Main {
         while (true) {
 
             Socket clientSocket = serverSocket.accept();
-            System.out.println("Nova conexão: " + clientSocket.getInetAddress());
+
+            HttpRequest request = HttpRequest.parse(clientSocket.getInputStream());
+            if (request != null) {
+                System.out.println("Requisição recebida: " + request);
+                System.out.println("Headers: " + request.headers);
+            }
 
         }
     }
