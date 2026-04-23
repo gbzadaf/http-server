@@ -43,7 +43,7 @@ public class HttpResponse {
             sb.append(entry.getKey()).append(": ").append(entry.getValue()).append("\r\n");
         }
 
-        sb.append("\r\n");
+        sb.append("\r\n"); // linha em branco obrigatória
         output.write(sb.toString().getBytes());
         if (body != null) {
             output.write(body);
