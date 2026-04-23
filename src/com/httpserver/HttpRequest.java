@@ -23,6 +23,7 @@ public class HttpRequest {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(input));
 
+        // Lê a primeira linha: "GET /index.html HTTP/1.1"
         String requestLine = br.readLine();
         if (requestLine == null || requestLine.isEmpty())
             return null;
@@ -31,6 +32,7 @@ public class HttpRequest {
         String method = parts[0];
         String path = parts[1];
 
+        // Lê os headers
         Map<String, String> headers = new HashMap<>();
 
         String line;
